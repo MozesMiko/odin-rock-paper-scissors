@@ -72,6 +72,7 @@
       }      
       }
 
+      /*
       let human1 = getHumanChoice();
       let comp1 = getComputerChoice();
       playRound(human1, comp1);
@@ -91,6 +92,13 @@
       let human5 = getHumanChoice();
       let comp5 = getComputerChoice();
       playRound(human5, comp5);
+      */
+
+      for(i = 0; i < 5; i++) {
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+      }
 
       if (humanScore < computerScore) {
         console.log("You lose the game!")
