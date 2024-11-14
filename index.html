@@ -7,12 +7,7 @@
 </head>
 <body>
   <script>
-
-      let humanScore = 0;
-      let computerScore = 0;
-      let computerChoice = getComputerChoice();
-      let humanChoice = getHumanChoice();
-
+      
     function getComputerChoice() {
       let computerChoice = Math.random();
       if (computerChoice < 0.33) {
@@ -36,11 +31,17 @@
       if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors" ) {
         return humanChoice;
       } else {
-        alert("Please enter a valid choice");
+        alert("Invalid choice");
       }
     }
-
-    function playRound(humanChoice, computerChoice) {
+    
+    function playGame() {
+      
+      let humanScore = 0;
+      let computerScore = 0;
+      
+      function playRound(humanChoice, computerChoice) {
+        
       if (humanChoice === "rock" && computerChoice === "paper" ) {
         console.log("You lose! Paper beats Rock.")
         computerScore += 1;
@@ -67,75 +68,40 @@
         console.log(`Current score: \nYou: ${humanScore} Computer: ${computerScore}`);
       } else {
         console.log("It's a tie!");
+        console.log(`Current score: \nYou: ${humanScore} Computer: ${computerScore}`);
+      }      
+      }
+
+      let human1 = getHumanChoice();
+      let comp1 = getComputerChoice();
+      playRound(human1, comp1);
+
+      let human2 = getHumanChoice();
+      let comp2 = getComputerChoice();
+      playRound(human2, comp2);
+
+      let human3 = getHumanChoice();
+      let comp3 = getComputerChoice();
+      playRound(human3, comp3);
+
+      let human4 = getHumanChoice();
+      let comp4 = getComputerChoice();
+      playRound(human4, comp4);
+
+      let human5 = getHumanChoice();
+      let comp5 = getComputerChoice();
+      playRound(human5, comp5);
+
+      if (humanScore < computerScore) {
+        console.log("You lose the game!")
+      } else if (humanScore > computerScore) {
+        console.log("You win the game!")
+      } else {
+        console.log("The game is tied!")
       }
     }
-
-    // Below is the same function using switch satements, which was made for practice.
-
-    /*
-    function playRound(humanChoice, computerChoice) {
-      if (humanChoice === "rock") {
-        switch(computerChoice) {
-          case "rock" :
-            console.log("It's a tie!");
-            console.log(`Current score: \nYou: ${humanScore} Computer: ${computerScore}`);
-            break;
-          case "paper" :
-            console.log("You lose! Paper beats Rock.");
-            computerScore += 1;
-            console.log(`Current score: \nYou: ${humanScore} Computer: ${computerScore}`);
-            break;
-          case "scissors" :
-            console.log("You win! Rock beats Scissors.");
-            humanScore += 1;
-            console.log(`Current score: \nYou: ${humanScore} Computer: ${computerScore}`);
-            break;
-        }
-      } else if (humanChoice === "paper") {
-        switch(computerChoice) {
-          case "rock" :
-            console.log("You win! Paper beats Rock.");
-            humanScore += 1;
-            console.log(`Current score: \nYou: ${humanScore} Computer: ${computerScore}`);
-            break;
-          case "paper" :
-            console.log("It's a tie!");
-            console.log(`Current score: \nYou: ${humanScore} Computer: ${computerScore}`);
-            break;
-          case "scissors" :
-            console.log("You lose! Scissors beats Paper.");
-            computerScore += 1;
-            console.log(`Current score: \nYou: ${humanScore} Computer: ${computerScore}`);
-            break;
-        }
-      } else if (humanChoice === "scissors") {
-        switch(computerChoice) {
-          case "rock" :
-            console.log("You lose! Rock beats Scissors.");
-            computerScore += 1;
-            console.log(`Current score: \nYou: ${humanScore} Computer: ${computerScore}`);
-            break;
-          case "paper" :
-            console.log("You win! Scissors beats Paper.");
-            humanScore += 1;
-            console.log(`Current score: \nYou: ${humanScore} Computer: ${computerScore}`);
-            break;
-          case "scissors" :
-            console.log("It's a tie!");
-            console.log(`Current score: \nYou: ${humanScore} Computer: ${computerScore}`);
-            break;
-        }
-      }
-    } 
-    */
-
-    function playGame() {
-      
-    }
-
-    playRound(humanChoice, computerChoice);
-    console.log(humanChoice);
-    console.log(computerChoice);
+    
+    playGame();
   </script>
 </body>
 </html>
