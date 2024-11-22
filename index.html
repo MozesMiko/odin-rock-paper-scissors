@@ -3,39 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Rock Paper Scissors</title>
 </head>
 <body>
+  <h1>Rock, paper, scissors</h1>
+  <div></div>
+  <p>Your score:</p>
+  <p>Computer score:</p>
+  <button id="rock">Rock</button>
+  <button id="paper">Paper</button>
+  <button id="scissors">Scissors</button>
   <script>
+
+    let humanChoice;
+
+    const buttons = document.querySelectorAll("button");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        humanChoice = button.id;
+        console.log(humanChoice);
+        playGame(button.id);
+      });
+    });
       
     function getComputerChoice() {
       let computerChoice = Math.random();
       if (computerChoice < 0.33) {
         computerChoice = "rock";
-        //console.log(computerChoice);
         return computerChoice;
       } else if (computerChoice > 0.33 && computerChoice < 0.66) {
         computerChoice = "paper";
-        //console.log(computerChoice);
         return computerChoice;
       } else {
         computerChoice = "scissors";
-        //console.log(computerChoice);
         return computerChoice;
       }
     }
-
+    /*
     function getHumanChoice() {
-      let humanChoice = window.prompt("Rock, paper, or scrissors?").toLowerCase()
-      // The above line gets the human choice and makes sure it's case insensitive by making it all lowercase.
+      //let humanChoice = window.prompt("Rock, paper, or scrissors?").toLowerCase()
       if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors" ) {
+        alert(button.id);
         return humanChoice;
       } else {
         alert("Invalid choice");
       }
     }
-    
-    function playGame() {
+    */
+    function playGame(humanChoice) {
       
       let humanScore = 0;
       let computerScore = 0;
@@ -72,34 +89,12 @@
       }      
       }
 
-      /*
-      let human1 = getHumanChoice();
-      let comp1 = getComputerChoice();
-      playRound(human1, comp1);
-
-      let human2 = getHumanChoice();
-      let comp2 = getComputerChoice();
-      playRound(human2, comp2);
-
-      let human3 = getHumanChoice();
-      let comp3 = getComputerChoice();
-      playRound(human3, comp3);
-
-      let human4 = getHumanChoice();
-      let comp4 = getComputerChoice();
-      playRound(human4, comp4);
-
-      let human5 = getHumanChoice();
-      let comp5 = getComputerChoice();
-      playRound(human5, comp5);
-      */
-
-      for(i = 0; i < 5; i++) {
-        let humanSelection = getHumanChoice();
+        let humanSelection = humanChoice;
         let computerSelection = getComputerChoice();
+        console.log(computerSelection);
         playRound(humanSelection, computerSelection);
-      }
-
+      
+      /*  
       if (humanScore < computerScore) {
         console.log("You lose the game!")
       } else if (humanScore > computerScore) {
@@ -107,9 +102,9 @@
       } else {
         console.log("The game is tied!")
       }
+      */
     }
-    
-    playGame();
+
   </script>
 </body>
 </html>
